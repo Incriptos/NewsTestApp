@@ -7,29 +7,29 @@
 //
 
 import UIKit
+import WebKit
 
 class DetailViewController: UIViewController {
 
+    
+    @IBOutlet weak var webView: UIWebView!
+    
+    var url: URL = URL(string: "https://www.google.com")!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        loadNews(url: url)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func loadNews(url: URL) {
+        let requestObj = URLRequest(url: url)
+        webView.loadRequest(requestObj)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func backAction(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
-}
+    
+ }

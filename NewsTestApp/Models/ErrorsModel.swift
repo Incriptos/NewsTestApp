@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+enum TestError: Error {
+    case other
+    case dataSerilization
+}
